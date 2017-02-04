@@ -22,9 +22,9 @@ export class BEMler {
     this.moduleList.forEach((entry) => {
       const child = this._getChild(entry);
 
-      if (!child && !modules.hasOwnProperty(entry)) {
+      if (!child && !this.modules.hasOwnProperty(entry)) {
         this.modules[entry] = {};
-      } else if (child && modules.hasOwnProperty(entry)) {
+      } else if (child && this.modules.hasOwnProperty(entry)) {
         return console.log(`no block called ${entry}`);
       } else {
         this._addChildToModules(child.type + 's', child.block, child.str);
