@@ -6,7 +6,7 @@ let chai = require('chai'),
 
 chai.should();
 
-import {BEMler} from '../index';
+import {BEMler} from '../BEMler.es6';
 
 describe('BEMler', () => {
   describe('#basics', () => {
