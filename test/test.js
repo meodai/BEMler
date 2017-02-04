@@ -33,7 +33,28 @@ describe('BEMler', () => {
     });
 
     it('outputs correct object', () => {
-      JSON.stringify(bemler.modules).should.equal('{"button":{"modifiers":["fat","icon","secondary","secondary__icon"],"elements":["icon"]},"table":{"modifiers":["fat","fat__row--fat__icon"],"elements":["head","row","row--fat","row--fat__icon"]}}')
+      bemler.modules.should.deep.equal({
+        button: {
+          modifiers: ['fat', 'icon', 'secondary', 'secondary__icon'],
+          elements: ['icon']
+        },
+        table: {
+          modifiers: ['fat', 'fat__row--fat__icon'],
+          elements:['head','row','row--fat','row--fat__icon']
+        }
+      });
+    });
+
+    it('returns correct blocks', () => {
+      bemler.getBlocks().should.deep.equal(['button', 'table']);
+    });
+
+    it('returns correct elements for block', () => {
+      bemler.getElements('button').should.deep.equal(['icon']);
+    });
+
+    it('returns correct modifiers for block', () => {
+      bemler.getModifiers('button').should.deep.equal(['fat', 'icon', 'secondary', 'secondary__icon']);
     });
   });
 });
