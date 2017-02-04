@@ -1,5 +1,5 @@
 // represents the BEM tree as an object
-export class UnBEM {
+export class BEMler {
   constructor (
     moduleList,
     separatorElement = '__',
