@@ -25,7 +25,7 @@ export class BEMler {
       if (!child && !this.modules.hasOwnProperty(entry)) {
         this.modules[entry] = {};
       } else if (child && this.modules.hasOwnProperty(entry)) {
-        return console.log(`no block called ${entry}`);
+        throw new Error(`no block called ${entry}`);
       } else {
         this._addChildToModules(child.type + 's', child.block, child.str);
       }
