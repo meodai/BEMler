@@ -1,0 +1,25 @@
+{
+  "name": "bemler",
+  "version": "0.1.0",
+  "description": "JS Class to transform an array of BEM strings into an object",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meodai/BEMler.git"
+  },
+  "keywords": [
+    "BEM",
+    "js",
+    "node",
+    "browser"
+  ],
+  "author": "meodai@gmail.com (David Aerne)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meodai/BEMler/issues"
+  },
+  "homepage": "https://github.com/meodai/BEMler#readme"
+}
