@@ -1,5 +1,5 @@
 // represents the BEM tree as an object
-export class BEMler {
+export class UnBEM {
   constructor (
     moduleList,
     separatorElement = '__',
@@ -19,33 +19,31 @@ export class BEMler {
   }
   // transforms array into a structured object
   _parseList () {
-    let lastBlock;
     this.moduleList.forEach((entry) => {
       const child = this._getChild(entry);
 
       if (!child && !modules.hasOwnProperty(entry)) {
-        this.modules[entry] = {}
-        lastBlock = entry;
+        this.modules[entry] = {};
       } else if (child && modules.hasOwnProperty(entry)) {
-        console.log(`no block called ${entry}`);
-      }
-
-      if (child) {
-        this._addChildToModules(child.type + 's', lastBlock, child.str);
+        return console.log(`no block called ${entry}`);
+      } else {
+        this._addChildToModules(child.type + 's', child.block, child.str);
       }
     })
   }
   // returns containing the element or modifier
   _getChild (str) {
     const match = str.match(this.childReg);
-    let child, matchType;
+    let child, matchType, block;
 
     if (match && match.index > -1) {
-      child = str.substr(match.index + match[0].length);
+      child = str.substring(match.index + match[0].length);
+      block = str.substring(0, match.index);
       matchType = match[0] === this.separator.element ? 'element' : 'modifier';
       return {
         str: child,
         type: matchType,
+        block: block
       }
     } else {
       return false;
